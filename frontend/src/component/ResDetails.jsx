@@ -1,6 +1,8 @@
 import  { useEffect ,useState} from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../utils/cartSlice';
 
 function ResDetails() {
     const {id}=useParams();
@@ -14,6 +16,8 @@ function ResDetails() {
           }
           calling();
         },[id])
+          const dispatch=useDispatch();
+
         return (
   <div className="bg-gray-100 min-h-screen py-10">
     <h1 className="text-center text-3xl font-bold mb-8 text-gray-800">
@@ -44,7 +48,7 @@ function ResDetails() {
             alt={foodItem.card.info.name}
           />
 
-          <button className="mt-2 px-4 py-1 bg-green-500 text-white rounded-md hover:bg-green-600 active:scale-95 transition-all">
+          <button onClick={()=> dispatch(addItem(foodItem))}className="mt-2 px-4 py-1 bg-green-500 text-white rounded-md hover:bg-green-600 active:scale-95 transition-all">
             Add +
           </button>
         </div>

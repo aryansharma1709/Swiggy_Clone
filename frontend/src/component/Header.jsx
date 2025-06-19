@@ -4,8 +4,11 @@ import { IoHelpBuoyOutline } from "react-icons/io5";
 import { FaCartPlus } from "react-icons/fa6";
 import { CiUser } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import { useSelector,} from "react-redux";
 function  Header()
 {
+    const cartItems=useSelector((state)=>state.cart.items);
+       
     return (
         <div className="flex bg-gray-900 text-white justify-between items-center  px-12 p-2">
             <Link to="/">
@@ -35,7 +38,7 @@ function  Header()
            </div>
              <div className="flex">
             <span className="mt-1"><FaCartPlus /></span>
-            <li className="mx-2">cart</li>
+            <Link to="cart" className="mx-2">cart-{ cartItems.length}</Link>
            </div>
            <div className="flex">
             
