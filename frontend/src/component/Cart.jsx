@@ -36,7 +36,7 @@ function Cart() {
              </div>
            </div>
          ))}
-               <button onClick={()=> dispatch(clearCart())}className="m-2 px-4 py-1 bg-red-500 text-white rounded-md hover:bg-green-600 active:scale-95 transition-all">
+               <button onClick={()=> dispatch(clearCart())}className="m-2 px-4 py-1 bg-red-500 text-white rounded-md active:scale-95 transition-all">
                clear Cart
                </button>
        </div>
